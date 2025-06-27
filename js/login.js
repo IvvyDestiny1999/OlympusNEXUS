@@ -5,11 +5,11 @@ function validateLogin() {
   const usuarios = {
     'separacaocd@zeusdobrasil.com.br': {
       senha: '@Zeus2025',
-      destino: 'HTML - Separação V3,11.html'
+      destino: 'HTML - Separação V3,12.html'
     },
     'estoquecd@zeusdobrasil.com.br': {
       senha: '@Zeus2025',
-      destino: 'HTML - Estoque.html'
+      destino: 'HTML Estoque v1.4.html'
     },
     'supervisoriocd@zeusdobrasil.com.br': {
       senha: '@Zeus2025',

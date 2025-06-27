@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel Supervisório</title>
+
+  <link rel="stylesheet" href="css/separacao.css" />
+  <script src="libs/chart.min.js"></script>
+  <script src="libs/xlsx.full.min.js"></script>
+  <script src="js/supervisorio.js" defer></script>
+</head>
+<body>
+
+  <h1>Painel Supervisório</h1>
+
+  <div class="link-container">
+    <a href="https://view.monday.com/boards/8182100717" class="link-box blue" target="_blank">Solicitações</a>
+    <a href="https://view.monday.com/boards/8194722554" class="link-box blue-sky" target="_blank">Embaladores</a>
+    <a href="https://view.monday.com/boards/8195073847" class="link-box purple" target="_blank">Quitadores</a>
+    <a href="https://view.monday.com/boards/7705321218" class="link-box green" target="_blank">Progresso</a>
+    <a href="https://view.monday.com/boards/5670006246" class="link-box grey11" target="_blank">Metas</a>
+  </div>
+
+  <div class="iframe-container">
+    <iframe src="https://view.monday.com/embed/7705321218-27f807d7a7092d4d342cdefb4631358a?r=use1"></iframe>
+    <iframe src="https://view.monday.com/embed/5670006246-0a26461f92647c355094a4f877a18377?r=use1"></iframe>
+  </div>
+
+  <div class="upload">
+    <h2>Importar Excel de Faróis</h2>
+    <input type="file" id="excelInput" accept=".xlsx" />
+    <div id="mensagem"></div>
+  </div>
+
+  <div style="max-width: 600px; margin-bottom: 50px;">
+    <canvas id="graficoFarol"></canvas>
+  </div>
+
+  <div class="calculadora">
+    <h2>Meta de Erros por Operador</h2>
+    <input type="number" id="total" placeholder="Total de Conclusões" />
+    <input type="number" id="erros" placeholder="Número de Erros" />
+    <br />
+    <button onclick="calcularMetaErros()">Verificar Meta</button>
+    <div id="resultado"></div>
+  </div>
+
+</body>
+</html>
