@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel de Acessos - Separação</title>
+
+  <link rel="stylesheet" href="css/separacao.css" />
+  <script src="js/separacao.js" defer></script>
+</head>
+<body>
+
+  <h1>Painel de Acessos Rápidos</h1>
+  <h2>estoque</h2>
+
+  <div class="link-container">
+    <a href="https://forms.monday.com/forms/1d5601c28cc95029cc056007e94d6188?r=use1" class="link-box green" target="_blank">Form Guarda</a>
+    <a href="https://forms.monday.com/forms/fa1cd2a96f1ae745861c877caeb8799d?r=use1" class="link-box purple" target="_blank">Form Abastecimento</a>
+    <a href="https://view.monday.com/8182100717-d58b510fa8f27e1c575b272ca2a640c5?r=use1" class="link-box blue" target="_blank">Quadro Solicitações</a>
+    <a href="https://grupoinfinita.monday.com/boards/8194722554/views/179823407" class="link-box blue-sky" target="_blank">Quadro Embaladores</a>
+    <a href="https://view.monday.com/embed/8195073847-059fdba9b921285899f236c1ea6e3ce3?r=use1" class="link-box grey11" target="_blank">Quadro Quitadores</a>
+    <a href="https://wkf.ms/4adbJ6V" class="link-box MidnightBlue" target="_blank">Form Quitadores</a>
+  </div>
+
+  <div class="iframe-container">
+    <iframe src="https://view.monday.com/embed/8182100717-d58b510fa8f27e1c575b272ca2a640c5?r=use1"></iframe>
+    <iframe src="https://view.monday.com/embed/5670006246-0a26461f92647c355094a4f877a18377?r=use1"></iframe>
+  </div>
+  
+  
+  <a id="abrirRDP" class="link-box purple" href="#" onclick="abrirRemoteDesktopApp()">Abrir Microsoft Remote Desktop</a>
+
+  <div class="calculadora">
+    <h2>Calculadora de Assertividade</h2>
+    <input type="number" id="total" placeholder="Total de Conclusões" />
+    <input type="number" id="erros" placeholder="Número de Erros" />
+    <br />
+<button onclick="calcularMetaErros()">Calcular</button>    <div id="resultado"></div>
+  </div>
+
+</body>
+</html>
