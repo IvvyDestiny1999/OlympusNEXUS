@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel de Acessos</title>
+
+
+<div hidden> Cabeçalho e informações do site acima </div>
+
+  <style>
+
+<div hidden> corpo da página </div>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      color: #fff;
+      padding: 80px 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+<div hidden> Parte de estilos dos botões </div>
+
+    h1 {
+      margin-bottom: 50px;
+      font-size: 2.5rem;
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .link-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .link-box {
+      width: 200px;
+      height: 160px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .link-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .green { background-color: #27ae60; }
+    .blue { background-color: #2980b9; }
+    .purple { background-color: #8e44ad; }
+    .blue-sky { background-color: #00BFcc; }
+    .grey11 { background-color: #1C1C1C; }
+    .MidnightBlue { background-color: #191970; }
+
+
+
+<div hidden> Formatação dos inframes. As box de dados importados do Monday </div>
+
+
+    .iframe-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      width: 100%;
+    }
+
+    .iframe-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      width: 100%;
+      margin-bottom: 40px;
+    }
+
+    iframe {
+      width: 48%;
+      min-width: 300px;
+      height: 500px;
+      border: none;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    }
+
+<div hidden> Botão de acesso a atalhos de computador, importação e ativação de apps externos;
+
+    .desktop-link {
+      margin-bottom: 40px;
+    }
+
+    .desktop-link a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .desktop-link a:hover {
+      text-decoration: underline;
+    }
+ </div>
+
+<div hidden> Formatação da Calculadora de assertividade. </div>
+
+    /* Estilo para a calculadora */
+    .calculadora {
+      margin-top: 60px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .calculadora input {
+      padding: 10px;
+      margin: 10px 0;
+      width: 80%;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .calculadora button {
+      padding: 10px 20px;
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .calculadora button:hover {
+      background-color: #1f6391;
+    }
+
+    #resultado {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Painel de Acessos Rápidos</h1>
+  <h2>ESTOQUE</h2>
+
+  <div class="link-container">
+    <a href="https://forms.monday.com/forms/1d5601c28cc95029cc056007e94d6188?r=use1" class="link-box green" target="_blank">Form Guarda</a>
+    <a href="https://forms.monday.com/forms/fa1cd2a96f1ae745861c877caeb8799d?r=use1" class="link-box purple" target="_blank">Form Abastecimento</a>
+    <a href="https://view.monday.com/8182100717-d58b510fa8f27e1c575b272ca2a640c5?r=use1" class="link-box blue" target="_blank">Quadro Solicitações</a>
+    <a href="https://grupoinfinita.monday.com/boards/8194722554/views/179823407" class="link-box blue-sky" target="_blank">Quadro Embaladores</a>
+    <a href="https://view.monday.com/embed/8195073847-059fdba9b921285899f236c1ea6e3ce3?r=use1" class="link-box grey11" target="_blank">Quadro Quitadores</a>
+    <a href="https://wkf.ms/4adbJ6V" class="link-box MidnightBlue" target="_blank">Form Quitadores</a>
+
+
+
+  <div class="iframe-container">
+    <iframe src="https://view.monday.com/embed/7705321218-27f807d7a7092d4d342cdefb4631358a?r=use1"></iframe>
+    <iframe src="https://view.monday.com/embed/5670006246-0a26461f92647c355094a4f877a18377?r=use1"></iframe>
+  </div>
+
+
+  <div class="desktop-link">
+    <hr style="width: 150px; margin: 20px auto;">
+    <a href="C:\ERP_Access\Almoxarifado.rdp" target="_blank">Abrir Atalho do Desktop</a>
+  </div>
+
+
+
+  <!-- Calculadora de Assertividade -->
+  <div class="calculadora">
+    <h2>Calculadora de Assertividade</h2>
+    <input type="number" id="total" placeholder="Total de Conclusões">
+    <input type="number" id="erros" placeholder="Número de Erros">
+    <br>
+    <button onclick="calcularAssertividade()">Calcular</button>
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    function calcularAssertividade() {
+      const total = parseInt(document.getElementById('total').value);
+      const erros = parseInt(document.getElementById('erros').value);
+
+      if (isNaN(total) || isNaN(erros) || total <= 0 || erros < 0 || erros > total) {
+        document.getElementById('resultado').innerText = "Por favor, insira valores válidos.";
+        return;
+      }
+
+      const acertos = total - erros;
+      const assertividade = (acertos / total) * 100;
+
+      document.getElementById('resultado').innerText = 
+        `Assertividade: ${assertividade.toFixed(2)}%`;
+    }
+
+  </script>
+
+</body>
+</html>

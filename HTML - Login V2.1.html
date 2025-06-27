@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)file:///C:/Users/separacaocd/Downloads/painel_de_acessos%20(3).html -->
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel de Acessos</title>
+
+  <style>
+    /* ============================
+       Fontes Personalizadas
+    ============================ */
+    @font-face {
+      font-family: 'Poppins-Regular';
+      src: url('../fonts/poppins/Poppins-Regular.ttf');
+    }
+
+    @font-face {
+      font-family: 'Poppins-Bold';
+      src: url('../fonts/poppins/Poppins-Bold.ttf');
+    }
+
+    @font-face {
+      font-family: 'Poppins-Medium';
+      src: url('../fonts/poppins/Poppins-Medium.ttf');
+    }
+
+    @font-face {
+      font-family: 'Montserrat-Bold';
+      src: url('../fonts/montserrat/Montserrat-Bold.ttf');
+    }
+
+    /* ============================
+       Reset e Estilização Global
+    ============================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Poppins-Regular', sans-serif;
+    }
+
+    a, p, input, textarea {
+      font-family: 'Poppins-Regular';
+      font-size: 14px;
+      line-height: 1.7;
+      color: #666;
+    }
+
+    a {
+      text-decoration: none;
+      transition: color 0.4s;
+    }
+
+    a:hover {
+      color: #57b846;
+    }
+
+    h1, h2, h3, h4, h5, h6, ul, li {
+      margin: 0;
+      list-style: none;
+    }
+
+    input, textarea, button {
+      border: none;
+      outline: none;
+    }
+
+    button:hover {
+      cursor: pointer;
+    }
+
+    iframe {
+      border: none;
+    }
+
+    /* ============================
+       Utilitários de Texto
+    ============================ */
+    .txt1 {
+      font-size: 13px;
+      color: #999;
+    }
+
+    .txt2 {
+      font-size: 13px;
+      color: #666;
+    }
+
+    /* ============================
+       Layout Principal
+    ============================ */
+    .limiter {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .container-login100 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 15px;
+      background: linear-gradient(-135deg, #009739, #FFCC29, #002776); /* Verde, Amarelo e Azul */
+    }
+
+    .wrap-login100 {
+      width: 960px;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      justify-content: space-between;
+      padding: 177px 130px 33px 95px;
+    }
+
+    /* ============================
+       Imagem do Login
+    ============================ */
+    .login100-pic {
+      width: 316px;
+    }
+
+    .login100-pic img {
+      max-width: 100%;
+    }
+
+    /* ============================
+       Formulário de Login
+    ============================ */
+    .login100-form {
+      width: 290px;
+    }
+
+    .login100-form-title {
+      font-family: 'Poppins-Bold';
+      font-size: 24px;
+      color: #333;
+      text-align: center;
+      padding-bottom: 54px;
+    }
+
+    .wrap-input100 {
+      position: relative;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .input100 {
+      font-family: 'Poppins-Medium';
+      font-size: 15px;
+      color: #666;
+      background: #e6e6e6;
+      width: 100%;
+      height: 50px;
+      border-radius: 25px;
+      padding: 0 30px 0 68px;
+    }
+
+    /* Placeholder transparente ao focar */
+    input:focus::placeholder,
+    textarea:focus::placeholder {
+      color: transparent;
+    }
+
+    /* Placeholder padrão */
+    input::placeholder,
+    textarea::placeholder {
+      color: #999;
+    }
+
+    /* ============================
+       Efeito de Foco no Input
+    ============================ */
+    .focus-input100 {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      border-radius: 25px;
+      box-shadow: 0 0 0 0;
+      color: rgba(87, 184, 70, 0.8);
+    }
+
+    .input100:focus + .focus-input100 {
+      animation: anim-shadow 0.5s ease-in-out forwards;
+    }
+
+    @keyframes anim-shadow {
+      to {
+        box-shadow: 0 0 70px 25px;
+        opacity: 0;
+      }
+    }
+
+    /* ============================
+       Ícone dentro do Input
+    ============================ */
+    .symbol-input100 {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding-left: 35px;
+      font-size: 15px;
+      color: #666;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      border-radius: 25px;
+      transition: all 0.4s;
+    }
+
+    .input100:focus + .focus-input100 + .symbol-input100 {
+      color: #57b846;
+      padding-left: 28px;
+    }
+
+    /* ============================
+       Botão de Login
+    ============================ */
+    .container-login100-form-btn {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding-top: 20px;
+    }
+
+    .login100-form-btn {
+      width: 100%;
+      height: 50px;
+      padding: 0 25px;
+      font-family: 'Montserrat-Bold';
+      font-size: 15px;
+      color: #fff;
+      text-transform: uppercase;
+      background: #57b846;
+      border-radius: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.4s;
+    }
+
+    .login100-form-btn:hover {
+      background: #333;
+    }
+
+    /* ============================
+       Responsividade
+    ============================ */
+    @media (max-width: 992px) {
+      .wrap-login100 {
+        padding: 177px 90px 33px 85px;
+      }
+
+      .login100-pic {
+        width: 35%;
+      }
+
+      .login100-form {
+        width: 50%;
+      }
+
+      .alert-validate::before {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .wrap-login100 {
+        padding: 100px 80px 33px;
+      }
+
+      .login100-pic {
+        display: none;
+      }
+
+      .login100-form {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .wrap-login100 {
+        padding: 100px 15px 33px;
+      }
+    }
+
+    /* ============================
+       Validação de Campos
+    ============================ */
+    .validate-input {
+      position: relative;
+    }
+
+    .alert-validate::before {
+      content: attr(data-validate);
+      position: absolute;
+      top: 50%;
+      right: 8px;
+      max-width: 70%;
+      padding: 4px 25px 4px 10px;
+      background: #fff;
+      border: 1px solid #c80000;
+      border-radius: 13px;
+      font-family: 'Poppins-Medium';
+      font-size: 13px;
+      color: #c80000;
+      line-height: 1.4;
+      text-align: left;
+      transform: translateY(-50%);
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .alert-validate::after {
+      content: "06a";
+      font-family: FontAwesome;
+      position: absolute;
+      top: 50%;
+      right: 13px;
+      font-size: 15px;
+      color: #c80000;
+      transform: translateY(-50%);
+    }
+
+    .alert-validate:hover::before {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100">
+        <div class="login100-pic js-tilt" data-tilt="">
+          <img src="./HTML - Login V2.1_files/zeus-do-brasil-logo-png_seeklogo-266967.png" alt="Zeus do Brasil Logo PNG Vector">
+        </div>
+
+        <form class="login100-form validate-form" onsubmit="return validateLogin()">
+          <span class="login100-form-title">
+            Member Login
+          </span>
+
+          <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+            <input class="input100" type="text" name="email" placeholder="Email" value="separacaocd@zeusdobrasil.com.br">
+            <span class="focus-input100"></span>
+            <span class="symbol-input100">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+            </span>
+          </div>
+
+          <div class="wrap-input100 validate-input" data-validate="Password is required">
+            <input class="input100" type="password" name="pass" placeholder="Password" value="@Zeus2025">
+            <span class="focus-input100"></span>
+            <span class="symbol-input100">
+              <i class="fa fa-lock" aria-hidden="true"></i>
+            </span>
+          </div>
+
+          <div class="container-login100-form-btn">
+            <button class="login100-form-btn">
+              Login
+            </button>
+          </div>
+
+          <div class="text-center p-t-12">
+            <span class="txt1">
+              Forgot
+            </span>
+            <a class="txt2" href="file:///C:/Users/separacaocd/Downloads/painel_de_acessos%20(3).html#">
+              Username / Password?
+            </a>
+          </div>
+
+          <div class="text-center p-t-136">
+            <a class="txt2" href="file:///C:/Users/separacaocd/Downloads/painel_de_acessos%20(3).html#">
+              Create your Account
+              <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript para validação de login -->
+  <script type="text/javascript" async="" src="./HTML - Login V2.1_files/analytics.js.download"></script><script>
+    function validateLogin() {
+      var email = document.querySelector('input[name="email"]').value;
+      var pass = document.querySelector('input[name="pass"]').value;
+
+      if (email === 'separacaocd@zeusdobrasil.com.br' && pass === '@Zeus2025') {
+        window.location.href = 'HTML - Separação V3,11.html';
+        return false; // Impede o envio do formulário
+      } else {
+        alert('Email ou senha incorretos!');
+        return false; // Impede o envio do formulário
+      }
+    }
+  </script>
+
+  <!-- Scripts adicionais -->
+  <script src="file:///C:/Users/separacaocd/Downloads/vendor/jquery/jquery-3.2.1.min.js"></script>
+  <script src="file:///C:/Users/separacaocd/Downloads/vendor/bootstrap/js/popper.js"></script>
+  <script src="file:///C:/Users/separacaocd/Downloads/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="file:///C:/Users/separacaocd/Downloads/vendor/select2/select2.min.js"></script>
+  <script src="file:///C:/Users/separacaocd/Downloads/vendor/tilt/tilt.jquery.min.js"></script>
+  <script>
+    $('.js-tilt').tilt({
+      scale: 1.1
+    })
+  </script>
+  <script async="" src="./HTML - Login V2.1_files/js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-23581568-13');
+  </script>
+  <script src="file:///C:/Users/separacaocd/Downloads/js/main.js"></script>
+
+
+</body></html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel de Acessos</title>
+
+
+<div hidden> Cabeçalho e informações do site acima </div>
+
+  <style>
+
+<div hidden> corpo da página </div>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      color: #fff;
+      padding: 80px 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+<div hidden> Parte de estilos dos botões </div>
+
+    h1 {
+      margin-bottom: 50px;
+      font-size: 2.5rem;
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .link-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .link-box {
+      width: 200px;
+      height: 160px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .link-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .green { background-color: #27ae60; }
+    .blue { background-color: #2980b9; }
+    .purple { background-color: #8e44ad; }
+    .blue-sky { background-color: #00BFcc; }
+    .grey11 { background-color: #1C1C1C; }
+    .MidnightBlue { background-color: #191970; }
+
+
+
+<div hidden> Formatação dos inframes. As box de dados importados do Monday </div>
+
+
+    .iframe-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      width: 100%;
+    }
+
+    .iframe-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      width: 100%;
+      margin-bottom: 40px;
+    }
+
+    iframe {
+      width: 48%;
+      min-width: 300px;
+      height: 500px;
+      border: none;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    }
+
+<div hidden> Botão de acesso a atalhos de computador, importação e ativação de apps externos;
+
+    .desktop-link {
+      margin-bottom: 40px;
+    }
+
+    .desktop-link a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .desktop-link a:hover {
+      text-decoration: underline;
+    }
+ </div>
+
+<div hidden> Formatação da Calculadora de assertividade. </div>
+
+    /* Estilo para a calculadora */
+    .calculadora {
+      margin-top: 60px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .calculadora input {
+      padding: 10px;
+      margin: 10px 0;
+      width: 80%;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .calculadora button {
+      padding: 10px 20px;
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .calculadora button:hover {
+      background-color: #1f6391;
+    }
+
+    #resultado {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Painel de Acessos Rápidos</h1>
+
+  <div class="link-container">
+    <a href="https://view.monday.com/embed/7705321218-27f807d7a7092d4d342cdefb4631358a?r=use1" class="link-box green" target="_blank">Quadro de solicitação</a>
+    <a href="https://wkf.ms/40w9Ij0" class="link-box purple" target="_blank">Form Solicitações Estoque</a>
+    <a href="https://view.monday.com/embed/7705321218-ebb21719cf682c2ba42642956fdab121?r=use1" class="link-box blue" target="_blank">Gráficos Estoque</a>
+
+
+  </div>
+
+
+  <div class="iframe-container">
+    <iframe src="https://view.monday.com/embed/7705321218-ebb21719cf682c2ba42642956fdab121?r=use1"></iframe>
+    <iframe src="https://view.monday.com/embed/7705321218-27f807d7a7092d4d342cdefb4631358a?r=use1"></iframe>
+  </div>
+
+
+<a id="abrirRDP" class="link-box purple" href="#" onclick="abrirRemoteDesktopApp()">Abrir Microsoft Remote Desktop</a>
+
+<script>
+  function abrirRemoteDesktopApp() {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const isAndroid = /Android/i.test(userAgent);
+    const isIOS = /iPhone|iPad|iPod/i.test(userAgent);
+    const isWindows = navigator.platform.includes("Win");
+    const isMac = navigator.platform.includes("Mac");
+    const isWebView = /(wv|; wv)/i.test(userAgent) || window.navigator.standalone;
+    
+    if (isWebView) {
+      alert("Abra este painel no navegador Chrome para usar este atalho.");
+      return;
+    }
+    
+    let link = "#";
+    
+    if (isAndroid) {
+      link = "rdp://";
+    } else if (isIOS) {
+      link = "rdp://";
+      setTimeout(() => {
+        window.location.href = "https://apps.apple.com/app/microsoft-remote-desktop/id714464092";
+      }, 2000);
+    } else if (isWindows) {
+      link = "ms-rd://";
+      setTimeout(() => {
+        window.location.href = "file:///C:/ERP_Access/Almoxarifado.rdp";
+      }, 2000);
+    } else if (isMac) {
+      link = "rdp://";
+    } else {
+      alert("Sistema não identificado. Verifique se o Microsoft Remote Desktop está instalado.");
+      return;
+    }
+    
+    window.location.href = link;
+  }
+</script>
+
+</body>
+</html>
