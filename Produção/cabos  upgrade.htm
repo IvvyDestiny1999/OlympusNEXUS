@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<!-- saved from url=(0096)file:///C:/Users/Lenovo/OneDrive/%C3%81rea%20de%20Trabalho/Projeto1/page%20clones/index%203.html -->
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>📦 Catálogo de Produtos</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      color: #fff;
+      padding: 60px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+      text-align: center;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    #filtro, input, textarea, button {
+      font-size: 1rem;
+      border-radius: 8px;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      max-width: 600px;
+      margin-bottom: 15px;
+    }
+
+    form {
+      display: none;
+      flex-wrap: wrap;
+      gap: 10px;
+      max-width: 600px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .item {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+      text-align: center;
+      padding: 15px;
+      transition: transform 0.3s ease;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .item:hover {
+      transform: scale(1.03);
+    }
+
+    .item p {
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+
+    .btnAdicionar { background: #00bfcc; color: #000; }
+    .btnApagar { background: #cc0022; color: #fff; }
+    .remover { background-color: #660000; color: white; }
+
+    #modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    #modal-content {
+      background: #222;
+      color: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 90%;
+      box-shadow: 0 0 20px #00bfcc;
+      text-align: center;
+    }
+
+    #produtoImagem {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    #fechar {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 30px;
+      cursor: pointer;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <h1>📦 Catálogo de Produtos</h1>
+
+  <input type="text" id="filtro" placeholder="🔎 Buscar código ou descrição">
+
+  <form id="produtoForm" style="display: flex;">
+    <input type="text" id="codigo" placeholder="Código do produto (5 dígitos)" required="">
+    <input type="text" id="descricao" placeholder="Descrição comercial" required="">
+    <input type="number" id="metros" placeholder="Metros" required="">
+    <input type="url" id="imagem" placeholder="🔗 URL da imagem externa">
+    <textarea id="especificacoes" placeholder="Especificações técnicas (1 por linha)" rows="5"></textarea>
+    <button type="submit" class="btnAdicionar">➕ Adicionar Medida</button>
+    <button type="button" id="botaoRemover" class="btnApagar">🗑️ Apagar Medida</button>
+  </form>
+  
+  <button id="mostrarFormulario" style="
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #2980b9;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+">
+📋 Novo Produto / Editar
+</button>
+
+  <div class="galeria" id="listaProdutos"><div class="item" style="opacity: 1;">
+        <p><strong>Código:</strong> 18263</p>
+        <p><strong>Descrição:</strong> cabo blindado</p>
+        <p><strong>Metros:</strong> 500</p>
+      </div></div>
+
+  <!-- Modal com imagem e detalhes -->
+  <div id="modal" style="display: none;">
+    <span id="fechar">×</span>
+    <div id="modal-content">
+      <img id="produtoImagem" src="./cabos  upgrade_files/D_NQ_NP_2X_633466-MLB81874295582_012025-F-500m-cabo-alarme-incndio-blindado-4-vias-2x15-2x075.webp" alt="Imagem do Produto">
+      <div id="produtoInfo">
+      <h2>18263</h2>
+      <p><strong>cabo blindado</strong></p>
+      <p>Metros: 500</p>
+      <div style="margin-top:20px; text-align:left;">
+        <h3 style="color:#00bfcc;">🔧 Especificações técnicas</h3>
+        <ul>
+          <li>Descrição</li><li>CONDUTOR - Cobre eletrolítico de tempera mole.</li><li>ISOLAÇÃO - Policloreto de Vinila, PVC/E (105°C).</li><li>IDENTIFICAÇÃO DOS CONDUTORES – 2 vias de bitola superior (Preto e vermelho) + 2 vias de bitola inferior (amarelo e branco).</li><li>SEPARADOR TOTAL – Fita poliéster.</li><li>BLINDAGEM ELETROSTÁTICA – fita de poliéster aluminizada com dreno de cobre estanhado em contato com a fita.</li><li>COBERTURA – Policloreto de Vinila, PVC/ST2 (105°C).</li><li>ENSAIOS DE ROTINA – Continuidade, Tensão elétrica em corrente alternada,</li><li>Resistência elétrica do condutor a 20°C, Resistência de isolamento à temperatura ambiente e Centelhamento.</li><li>APLICAÇÕES – Indicado para alimentação do sistema de detecção e alarme de incêndio de forma a evitar interferências de ruídos externos nos sinais transmitidos. Interligações de</li><li>laços endereçáveis e da central com os periféricos.</li><li>NORMA APLICÁVEL – NBR17240, NBR10300.</li><li>Cabo blindado para sistema de alarme de incêndio formado por 04 condutores de sendo: 2 x 0,75mm (amarelo e branco) e 2 x 1,50mm (preto e vermelho)</li><li>Características:</li><li>Fabricando em cobre eletrolítico, têmpera mole, classe de encordoamento IV, sendo 02 condutores seção de 0,75mm², isolados em PVC/A, tensão 600V e identificados por cores BC/AM, condutores torcidos com passo de 50mm e 02 condutores seção de 1,50mm², isolados em PVC/A, tensão 600V e identificados por cores PT/VM.</li><li>Condutores torcidos com passo de 70mm, conjunto reunido e torcido coletivamente com passo de torção 80mm enfaixados com fita separadora de poliéster, blindagem em fita de poliéster aluminizado sobre condutor dreno de cobre estanhado, capa externa em PVC/E classe 105°C antichama na cor vermelha.</li>
+        </ul>
+      </div>
+    </div>
+      <button id="apagarProduto" class="remover" style="margin-top: 20px;">❌ Remover Produto</button>
+    </div>
+  </div>
+
+<script>
+  let produtos = JSON.parse(localStorage.getItem("produtos")) || [];
+
+  function renderizarProdutos() {
+    const galeria = document.getElementById("listaProdutos");
+    galeria.innerHTML = "";
+    produtos.forEach(p => {
+      const card = document.createElement("div");
+      card.className = "item";
+      card.innerHTML = `
+        <p><strong>Código:</strong> ${p.codigo}</p>
+        <p><strong>Descrição:</strong> ${p.descricao}</p>
+        <p><strong>Metros:</strong> ${p.metros.join(", ")}</p>
+      `;
+      card.addEventListener("click", () => abrirModal(p));
+      galeria.appendChild(card);
+      setTimeout(() => { card.style.opacity = 1 }, 100);
+    });
+  }
+
+  document.getElementById("produtoForm").addEventListener("submit", e => {
+    e.preventDefault();
+    const codigo = document.getElementById("codigo").value.trim();
+    const descricao = document.getElementById("descricao").value.trim();
+    const metros = parseInt(document.getElementById("metros").value);
+    const imagem = document.getElementById("imagem").value.trim();
+    const especificacoes = document.getElementById("especificacoes").value
+      .split("\n").map(l => l.trim()).filter(l => l);
+
+    if (codigo.length === 5 && metros > 0 && descricao) {
+      let existente = produtos.find(p => p.codigo === codigo);
+      if (existente) {
+        existente.metros.push(metros);
+      } else {
+        produtos.push({ codigo, descricao, metros: [metros], imagem, especificacoes });
+      }
+      localStorage.setItem("produtos", JSON.stringify(produtos));
+      renderizarProdutos();
+      e.target.reset();
+    }
+  });
+
+  document.getElementById("botaoRemover").addEventListener("click", () => {
+    const codigo = document.getElementById("codigo").value.trim();
+    const metros = parseInt(document.getElementById("metros").value);
+    let produto = produtos.find(p => p.codigo === codigo);
+    if (produto) {
+      const index = produto.metros.indexOf(metros);
+      if (index !== -1) {
+        produto.metros.splice(index, 1);
+        localStorage.setItem("produtos", JSON.stringify(produtos));
+        renderizarProdutos();
+        alert(`Removido: ${metros} metros do código ${codigo}`);
+      } else {
+        alert(`Valor ${metros}m não encontrado no código ${codigo}`);
+      }
+    } else {
+      alert(`Produto ${codigo} não existe`);
+    }
+    document.getElementById("produtoForm").reset();
+  });
+
+  function abrirModal(produto) {
+    document.getElementById("produtoImagem").src = produto.imagem || "https://via.placeholder.com/400x300?text=Sem+Imagem";
+    const info = document.getElementById("produtoInfo");
+    info.innerHTML = `
+      <h2>${produto.codigo}</h2>
+      <p><strong>${produto.descricao}</strong></p>
+      <p>Metros: ${produto.metros.join(", ")}</p>
+      <div style="margin-top:20px; text-align:left;">
+        <h3 style="color:#00bfcc;">🔧 Especificações técnicas</h3>
+        <ul>
+          ${produto.especificacoes?.map(e => `<li>${e}</li>`).join("") || "<li>Não disponível</li>"}
+        </ul>
+      </div>
+    `;
+    document.getElementById("produtoForm").style.display = "flex";
+    document.getElementById("modal").style.display = "flex";
+
+    document.getElementById("apagarProduto").onclick = () => {
+      produtos = produtos.filter
+      (p => p.codigo !== produto.codigo);
+      localStorage.setItem("produtos", JSON.stringify(produtos));
+      document.getElementById("modal").style.display = "none";
+      renderizarProdutos();
+      alert(`Produto ${produto.codigo} removido`);
+    };
+  }
+
+  document.getElementById("fechar").addEventListener("click", () => {
+    document.getElementById("modal").style.display = "none";
+  });
+
+  document.getElementById("filtro").addEventListener("input", () => {
+    const termo = document.getElementById("filtro").value.toLowerCase();
+    document.querySelectorAll(".item").forEach(item => {
+      const texto = item.textContent.toLowerCase();
+      item.style.display = texto.includes(termo) ? "block" : "none";
+    });
+    document.getElementById("produtoForm").style.display = "none";
+  });
+// Botão para expandir/ocultar formulário
+document.getElementById("mostrarFormulario").addEventListener("click", () => {
+  const form = document.getElementById("produtoForm");
+  form.style.display = form.style.display === "none" ? "flex" : "none";
+});
+  renderizarProdutos();
+</script>
+
+</body></html>

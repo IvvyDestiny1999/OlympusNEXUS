@@ -3,106 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>📦 Galeria de Produtos</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #1f1c2c, #928dab);
-      color: #fff;
-      padding: 60px 30px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    h1 {
-      margin-bottom: 30px;
-      font-size: 2.5rem;
-      text-align: center;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-    }
-
-    #filtro, #codigo, #metros, button {
-      font-size: 1rem;
-      border-radius: 8px;
-      border: none;
-      padding: 10px;
-      width: 100%;
-      max-width: 500px;
-      margin-bottom: 15px;
-    }
-
-    #filtro {
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    }
-
-    button {
-      background: #00bfcc;
-      color: #000;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .galeria {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 20px;
-      width: 100%;
-      max-width: 1200px;
-    }
-
-    .item {
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-      overflow: hidden;
-      text-align: center;
-      padding: 15px;
-      transition: transform 0.3s ease;
-      opacity: 0;
-    }
-
-    .item:hover {
-      transform: scale(1.03);
-    }
-
-    .item p {
-      font-size: 15px;
-      margin-bottom: 5px;
-    }
-
-    #modal {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    #modal-content {
-      background: #222;
-      color: #fff;
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-      max-width: 90%;
-      box-shadow: 0 0 20px #00bfcc;
-    }
-
-    #fechar {
-      position: absolute;
-      top: 30px;
-      right: 40px;
-      font-size: 30px;
-      cursor: pointer;
-      color: #fff;
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <h1>📦 Galeria de Produtos</h1>
@@ -111,33 +12,108 @@
   <div class="galeria" id="listaProdutos">
     <div class="item" style="opacity: 1;">
       <p><strong>Código:</strong> 19867</p>
-      <p><strong>Metros:</strong> 50, 50, 18, 20, 20, 8, 40, 48, 94, 4, 34, 33, 40, 47, 80, 145, 70, 70, 11, 50</p>
+      
+      <p><strong>Metros:</strong> 50, 50, 18, 20, 20, 8, 40, 40, 48, 94, 4, 34, 33, 40, 47, 80, 145, 70, 70, 11, 50</p>
     </div>
     <div class="item" style="opacity: 1;">
-      <p><strong>Código:</strong> 19632</p>
-      <p><strong>Metros:</strong> 36, 10, 56, 40, 40, 8, 5, 15, 3</p>
+      <p><strong>Código:</strong> 19637</p>
+      <p><strong>Metros:</strong> 36, 10, 56, 40, 10, 8, 5, 15, 3</p>
     </div>
     <div class="item" style="opacity: 1;">
       <p><strong>Código:</strong> 18497</p>
-      <p><strong>Metros:</strong> 250, 90, 40, 5, 45, 90</p>
+      <p><strong>Metros:</strong> 250, 90, 46, 5, 45, 90</p>
     </div>
     <div class="item" style="opacity: 1;">
-      <p><strong>Código:</strong> 18499</p>
-      <p><strong>Metros:</strong> 20, 400, 200, 25482, 5, 4, 3, 18549, 33, 19, 90, 24683, 32, 22614, 20, 20, 3, 17, 50</p>
+      <p><strong>Código:</strong> 18949</p>
+      <p><strong>Metros:</strong> 20, 400, 200 </p>
     </div>
+      <div class="item" style="opacity: 1;">
+      <p><strong>Código:</strong> 25482</p>
+      <p><strong>Metros:</strong>  33, 19, 90</p>
+    </div>  
+    <div class="item" style="opacity: 1;">
+      <p><strong>Código:</strong> 22614</p>
+      <p><strong>Metros:</strong> 20, 20, 3, 17, 50</p>
+    </div>
+      <div class="item" style="opacity: 1;">
+      <p><strong>Código:</strong> 24683</p>
+      <p><strong>Metros:</strong> 32</p>
+    </div>  
+        <div class="item" style="opacity: 1;">
+      <p><strong>Código:</strong> 25482</p>
+      <p><strong>Metros:</strong> 4, 3</p>
+    </div>  
     <div class="item" style="opacity: 1;">
       <p><strong>Código:</strong> 29413</p>
       <p><strong>Metros:</strong> 50, 97, 300, 15, 12</p>
     </div>
     <div class="item" style="opacity: 1;">
+      <p><strong>Código:</strong> 30996</p>
+      <p><strong>Metros:</strong> 45, 4, 49</p>
+    </div>
+    <div class="item" style="opacity: 1;">  
+      <p><strong>Código:</strong> 18545</p>
+      <p><strong>Metros:</strong> 150, 150, 65, 145, 25</p>
+    </div>
+    <div class="item" style="opacity: 1;">
       <p><strong>Código:</strong> 29412</p>
       <p><strong>Metros:</strong> 145, 12, 20, 22, 50</p>
     </div>
+    
     <div class="item" style="opacity: 1;">
-      <p><strong>Código:</strong> 18263</p>
-      <p><strong>Metros:</strong> 5, 16, 21, 11, 24, 7</p>
+      <div style="width: 100%; max-width: 350px; height: 220px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+        <img id="produtoImagem" src="https://http2.mlstatic.com/D_NQ_NP_2X_714718-MLU76860159357_062024-F.webp" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block;">
+      </div>
+      <div id="produtoInfo">
+      <h2>18263</h2>
+      <p><strong>Metros:</strong> 5, 16, 21, 41, 24, 7</p>
+      <p><p>
+          <h3>Descrição</h3>
+          <li>CONDUTOR - Cobre nú 35mm 7x2,5mm.</li>
+          <li>ISOLAÇÃO - Nenhumma</li>
+          <li>TIPO - NORMATIZADO</li>
+          <li> Aterramentos e Condução de Alta Potência</li>
     </div>
   </div>
+ <div class="item" style="opacity: 1;">
+      <div style="width: 100%; max-width: 350px; height: 220px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+        <img id="produtoImagem" src="https://http2.mlstatic.com/D_NQ_NP_2X_714718-MLU76860159357_062024-F.webp" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block;">
+      </div>
+      <div id="produtoInfo">
+      <h2>18545</h2>
+      <p><strong>Metros:</strong> 150, 150, 65, 145, 25</p>
+      <p><p>
+          <h3>Descrição</h3>
+          <li>CONDUTOR - Cobre nú 35mm 19x1,45mm.</li>
+          <li>ISOLAÇÃO - Nenhumma</li>
+          <li>TIPO - Comercial</li>
+          <li> Aterramentos e Condução de Alta Potência</li>
+    </div>
+
+
+ </div>
+    <div class="item" style="opacity: 1;">
+      <div style="width: 100%; max-width: 350px; height: 220px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+        <img id="produtoImagem" src="https://http2.mlstatic.com/D_NQ_NP_2X_633466-MLB81874295582_012025-F-500m-cabo-alarme-incndio-blindado-4-vias-2x15-2x075.webp" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block;">
+      </div>
+      <div id="produtoInfo">
+      <h2>29412</h2>
+      <p><strong>Metros:</strong> 145, 12, 20, 22, 50</p>
+      <p><p>
+          <h3>Descrição</h3>
+          <li>CABO BLINDADO 2 vias 0,75mm</li>
+          <li>ISOLAÇÃO - PVC e Filme aluminizado</li>
+          <li>TIPO - Comercial</li>
+          <li>Cabo para comunição de sistemas criticos de segurança</li>
+    </div>
+
+
+
+    
+  </div>
+
+
+
 
   <!-- Modal -->
   <div id="modal">

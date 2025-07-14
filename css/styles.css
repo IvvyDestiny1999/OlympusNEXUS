@@ -1,0 +1,113 @@
+/* Estilos globais */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  color: #fff;
+  padding: 60px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+h1 {
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+#filtro, #codigo, #metros, button {
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 15px;
+}
+
+#produtoForm { margin-bottom: 20px; max-width: 500px; width: 100%; display: flex; flex-wrap: wrap; gap: 10px; }
+
+#produtoForm input[type="text"], #produtoForm input[type="number"] { flex: 1 1 100%; }
+
+#produtoForm .adicionar-btn { flex: 1 1 48%; background: #00bfcc; color: #000; font-weight: bold; padding: 10px; border: none; border-radius: 8px; }
+
+#produtoForm .remover-btn { flex: 1 1 48%; background: #cc0022; color: #fff; font-weight: bold; padding: 10px; border: none; border-radius: 8px; }
+
+#filtro {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+button {
+  background: #00bfcc;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.item {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  text-align: center;
+  padding: 15px;
+  transition: transform 0.3s ease;
+  opacity: 0;
+}
+
+.item:hover {
+  transform: scale(1.03);
+}
+
+.item p {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#modal-content {
+  background: #222;
+  color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  max-width: 90%;
+  box-shadow: 0 0 20px #00bfcc;
+}
+
+#fechar {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #fff;
+}
