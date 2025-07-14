@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>📦 Catálogo de Produtos</title>
+  <title>📦 Galeria de Produtos</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -24,23 +24,25 @@
       text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     }
 
-    #filtro, input, textarea, button {
+    #filtro, #codigo, #metros, button {
       font-size: 1rem;
       border-radius: 8px;
       border: none;
       padding: 10px;
       width: 100%;
-      max-width: 600px;
+      max-width: 500px;
       margin-bottom: 15px;
     }
 
-    form {
-      display: none;
-      flex-wrap: wrap;
-      gap: 10px;
-      max-width: 600px;
-      width: 100%;
-      margin-bottom: 20px;
+    #filtro {
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    button {
+      background: #00bfcc;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
     }
 
     .galeria {
@@ -60,7 +62,6 @@
       padding: 15px;
       transition: transform 0.3s ease;
       opacity: 0;
-      cursor: pointer;
     }
 
     .item:hover {
@@ -71,10 +72,6 @@
       font-size: 15px;
       margin-bottom: 5px;
     }
-
-    .btnAdicionar { background: #00bfcc; color: #000; }
-    .btnApagar { background: #cc0022; color: #fff; }
-    .remover { background-color: #660000; color: white; }
 
     #modal {
       position: fixed;
@@ -92,16 +89,9 @@
       color: #fff;
       border-radius: 12px;
       padding: 20px;
+      text-align: center;
       max-width: 90%;
       box-shadow: 0 0 20px #00bfcc;
-      text-align: center;
-    }
-
-    #produtoImagem {
-      width: 100%;
-      max-width: 400px;
-      border-radius: 8px;
-      margin-bottom: 20px;
     }
 
     #fechar {
@@ -115,41 +105,44 @@
   </style>
 </head>
 <body>
-  <h1>📦 Catálogo de Produtos</h1>
-
-  <input type="text" id="filtro" placeholder="🔎 Buscar código ou descrição">
-
-  <form id="produtoForm">
-    <input type="text" id="codigo" placeholder="Código do produto (5 dígitos)" required>
-    <input type="text" id="descricao" placeholder="Descrição comercial" required>
-    <input type="number" id="metros" placeholder="Metros" required>
-    <input type="url" id="imagem" placeholder="🔗 URL da imagem externa">
-    <textarea id="especificacoes" placeholder="Especificações técnicas (1 por linha)" rows="5"></textarea>
-    <button type="submit" class="btnAdicionar">➕ Adicionar Medida</button>
-    <button type="button" id="botaoRemover" class="btnApagar">🗑️ Apagar Medida</button>
-  </form>
+  <h1>📦 Galeria de Produtos</h1>
+ 
   
-  <button id="mostrarFormulario" style="
-  margin-bottom: 20px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  background-color: #2980b9;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-">
-📋 Novo Produto / Editar
-</button>
-
-  <div class="galeria" id="listaProdutos"></div>
-
-  <!-- Modal com imagem e detalhes -->
-  <div id="modal">
-    <span id="fechar">&times;</span>
-    <div id="modal-content">
+  <div class="galeria" id="listaProdutos">
+    <div class="item" style="opacity: 1;">
+      <p><strong>Código:</strong> 19867</p>
+      <p><strong>Metros:</strong> 50, 50, 18, 20, 20, 8, 40, 48, 94, 4, 34, 33, 40, 47, 80, 145, 70, 70, 11, 50</p>
     </div>
+    <div class="item" style="opacity: 1;">
+      <p><strong>Código:</strong> 19632</p>
+      <p><strong>Metros:</strong> 36, 10, 56, 40, 40, 8, 5, 15, 3</p>
+    </div>
+    <div class="item" style="opacity: 1;">
+      <p><strong>Código:</strong> 18497</p>
+      <p><strong>Metros:</strong> 250, 90, 40, 5, 45, 90</p>
+    </div>
+    <div class="item" style="opacity: 1;">
+      <p><strong>Código:</strong> 18499</p>
+      <p><strong>Metros:</strong> 20, 400, 200, 25482, 5, 4, 3, 18549, 33, 19, 90, 24683, 32, 22614, 20, 20, 3, 17, 50</p>
+    </div>
+    <div class="item" style="opacity: 1;">
+      <p><strong>Código:</strong> 29413</p>
+      <p><strong>Metros:</strong> 50, 97, 300, 15, 12</p>
+    </div>
+    <div class="item" style="opacity: 1;">
+      <p><strong>Código:</strong> 29412</p>
+      <p><strong>Metros:</strong> 145, 12, 20, 22, 50</p>
+    </div>
+    <div class="item" style="opacity: 1;">
+      <p><strong>Código:</strong> 18263</p>
+      <p><strong>Metros:</strong> 5, 16, 21, 11, 24, 7</p>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal">
+    <span id="fechar">×</span>
+    <div id="modal-content"></div>
   </div>
 
 <script>

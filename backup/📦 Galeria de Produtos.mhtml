@@ -1,0 +1,126 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: file:///C:/Users/Lenovo/OneDrive/%C3%81rea%20de%20Trabalho/Projeto1/page%20clones/index.html
+Subject: =?utf-8?Q?=F0=9F=93=A6=20Galeria=20de=20Produtos?=
+Date: Mon, 14 Jul 2025 01:16:31 -0300
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--L66KHFiIOwhZlMp7iMLmFnM7Xu8WXc6mZIxhjQTpVl----"
+
+
+------MultipartBoundary--L66KHFiIOwhZlMp7iMLmFnM7Xu8WXc6mZIxhjQTpVl----
+Content-Type: text/html
+Content-ID: <frame-53783DD39701145E898F976E2770A43D@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/Users/Lenovo/OneDrive/%C3%81rea%20de%20Trabalho/Projeto1/page%20clones/index.html
+
+<!DOCTYPE html><html lang=3D"pt-BR"><head><meta http-equiv=3D"Content-Type"=
+ content=3D"text/html; charset=3DUTF-8"><link rel=3D"stylesheet" type=3D"te=
+xt/css" href=3D"cid:css-ab648767-15a5-4916-8198-eef866146cf6@mhtml.blink" /=
+>
+ =20
+  <title>=F0=9F=93=A6 Galeria de Produtos</title>
+ =20
+</head>
+<body>
+  <h1>=F0=9F=93=A6 Galeria de Produtos</h1>
+
+  <input type=3D"text" id=3D"filtro" placeholder=3D"=F0=9F=94=8E Buscar c=
+=C3=B3digo ou metros">
+
+<form id=3D"produtoForm" style=3D"margin-bottom: 20px; max-width: 500px; wi=
+dth: 100%; display: flex; flex-wrap: wrap; gap: 10px;">
+  <input type=3D"text" id=3D"codigo" placeholder=3D"C=C3=B3digo do produto =
+(5 d=C3=ADgitos)" required=3D"" style=3D"flex: 1 1 100%;">
+  <input type=3D"number" id=3D"metros" placeholder=3D"Metros" required=3D""=
+ style=3D"flex: 1 1 100%;">
+  <button type=3D"submit" style=3D"flex: 1 1 48%; background:#00bfcc; color=
+:#000; font-weight:bold; padding:10px; border:none; border-radius:8px;">=E2=
+=9E=95 Adicionar</button>
+  <button type=3D"button" id=3D"botaoRemover" style=3D"flex: 1 1 48%; backg=
+round:#cc0022; color:#fff; font-weight:bold; padding:10px; border:none; bor=
+der-radius:8px;">=F0=9F=97=91=EF=B8=8F Apagar</button>
+</form>
+  <div class=3D"galeria" id=3D"listaProdutos"><div class=3D"item" style=3D"=
+opacity: 1;">
+      <p><strong>C=C3=B3digo:</strong> 19867</p>
+      <p><strong>Metros:</strong> 50, 50, 18, 20, 20, 8, 40, 48, 94, 4, 34,=
+ 33, 40, 47, 80, 145, 70, 70, 11, 50</p>
+    </div><div class=3D"item" style=3D"opacity: 1;">
+      <p><strong>C=C3=B3digo:</strong> 19632</p>
+      <p><strong>Metros:</strong> 36, 10, 56, 40, 40, 8, 5, 15, 3</p>
+    </div><div class=3D"item" style=3D"opacity: 1;">
+      <p><strong>C=C3=B3digo:</strong> 18497</p>
+      <p><strong>Metros:</strong> 250, 90, 40, 5, 45, 90</p>
+    </div><div class=3D"item" style=3D"opacity: 1;">
+      <p><strong>C=C3=B3digo:</strong> 18499</p>
+      <p><strong>Metros:</strong> 20, 400, 200, 25482, 5, 4, 3, 18549, 33, =
+19, 90, 24683, 32, 22614, 20, 20, 3, 17, 50</p>
+    </div><div class=3D"item" style=3D"opacity: 1;">
+      <p><strong>C=C3=B3digo:</strong> 29413</p>
+      <p><strong>Metros:</strong> 50, 97, 300, 15, 12</p>
+    </div><div class=3D"item" style=3D"opacity: 1;">
+      <p><strong>C=C3=B3digo:</strong> 29412</p>
+      <p><strong>Metros:</strong> 145, 12, 20, 22, 50</p>
+    </div><div class=3D"item" style=3D"opacity: 1;">
+      <p><strong>C=C3=B3digo:</strong> 18263</p>
+      <p><strong>Metros:</strong> 5, 16, 21, 11, 24, 7, 7, 7</p>
+    </div></div>
+
+  <!-- Modal -->
+  <div id=3D"modal">
+    <span id=3D"fechar">=C3=97</span>
+    <div id=3D"modal-content"></div>
+  </div>
+
+
+
+</body></html>
+------MultipartBoundary--L66KHFiIOwhZlMp7iMLmFnM7Xu8WXc6mZIxhjQTpVl----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-ab648767-15a5-4916-8198-eef866146cf6@mhtml.blink
+
+@charset "utf-8";
+
+* { box-sizing: border-box; margin: 0px; padding: 0px; }
+
+body { font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; backgr=
+ound: linear-gradient(135deg, rgb(31, 28, 44), rgb(146, 141, 171)); color: =
+rgb(255, 255, 255); padding: 60px 30px; display: flex; flex-direction: colu=
+mn; align-items: center; min-height: 100vh; }
+
+h1 { margin-bottom: 30px; font-size: 2.5rem; text-align: center; text-shado=
+w: rgba(255, 255, 255, 0.3) 0px 0px 10px; }
+
+#filtro, #codigo, #metros, button { font-size: 1rem; border-radius: 8px; bo=
+rder: none; padding: 10px; width: 100%; max-width: 500px; margin-bottom: 15=
+px; }
+
+#filtro { box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 6px; }
+
+button { background: rgb(0, 191, 204); color: rgb(0, 0, 0); font-weight: bo=
+ld; cursor: pointer; }
+
+.galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(2=
+20px, 1fr)); gap: 20px; width: 100%; max-width: 1200px; }
+
+.item { background: rgba(255, 255, 255, 0.08); border-radius: 12px; box-sha=
+dow: rgba(0, 0, 0, 0.25) 0px 4px 12px; overflow: hidden; text-align: center=
+; padding: 15px; transition: transform 0.3s; opacity: 0; }
+
+.item:hover { transform: scale(1.03); }
+
+.item p { font-size: 15px; margin-bottom: 5px; }
+
+#modal { position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; b=
+ackground: rgba(0, 0, 0, 0.8); display: none; justify-content: center; alig=
+n-items: center; z-index: 1000; }
+
+#modal-content { background: rgb(34, 34, 34); color: rgb(255, 255, 255); bo=
+rder-radius: 12px; padding: 20px; text-align: center; max-width: 90%; box-s=
+hadow: rgb(0, 191, 204) 0px 0px 20px; }
+
+#fechar { position: absolute; top: 30px; right: 40px; font-size: 30px; curs=
+or: pointer; color: rgb(255, 255, 255); }
+------MultipartBoundary--L66KHFiIOwhZlMp7iMLmFnM7Xu8WXc6mZIxhjQTpVl------
