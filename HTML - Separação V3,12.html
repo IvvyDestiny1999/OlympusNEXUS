@@ -38,5 +38,25 @@
 <button onclick="calcularMetaErros()">Calcular</button>    <div id="resultado"></div>
   </div>
 
+  <script>
+  function abrirRemoteDesktopApp() {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    if (/windows/i.test(userAgent)) {
+      // Abrir no Windows
+      const link = document.createElement('a');
+      link.href = 'almoxarifado.rdp';
+      link.download = 'almoxarifado.rdp';
+      link.click();
+    } else if (/macintosh|mac os x/i.test(userAgent)) {
+      // Abrir no iOS
+      alert('Para abrir o Remote Desktop no iOS, use o aplicativo Microsoft Remote Desktop disponível na App Store.');
+    } else {
+      // Caso não seja Windows ou iOS
+      alert('Plataforma não suportada para abrir o Remote Desktop.');
+    }
+  }
+</script>
+
 </body>
 </html>

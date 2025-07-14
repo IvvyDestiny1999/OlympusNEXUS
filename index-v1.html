@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>📦 Galeria de Produtos</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      color: #fff;
+      padding: 60px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+      text-align: center;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    #filtro, #codigo, #metros, button {
+      font-size: 1rem;
+      border-radius: 8px;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      max-width: 500px;
+      margin-bottom: 15px;
+    }
+
+    #filtro {
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    button {
+      background: #00bfcc;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .item {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+      text-align: center;
+      padding: 15px;
+      transition: transform 0.3s ease;
+      opacity: 0;
+    }
+
+    .item:hover {
+      transform: scale(1.03);
+    }
+
+    .item p {
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+
+    #modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    #modal-content {
+      background: #222;
+      color: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      max-width: 90%;
+      box-shadow: 0 0 20px #00bfcc;
+    }
+
+    #fechar {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 30px;
+      cursor: pointer;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <h1>📦 Galeria de Produtos</h1>
+
+  <input type="text" id="filtro" placeholder="🔎 Buscar código ou metros">
+
+  <form id="produtoForm">
+    <input type="text" id="codigo" placeholder="Código do produto (5 dígitos)" required>
+    <input type="number" id="metros" placeholder="Metros" required>
+    <button type="submit">Adicionar Produto</button>
+  </form>
+
+  <div class="galeria" id="listaProdutos"></div>
+
+  <!-- Modal -->
+  <div id="modal">
+    <span id="fechar">&times;</span>
+    <div id="modal-content"></div>
+  </div>
+
+<script>
+// Produtos iniciais
+let produtos = JSON.parse(localStorage.getItem("produtos")) || [
+  {codigo: "19867", metros: [50,50,18,20,20,8,40,48,94,4,34,33,40,47,80,145,70,70,11,50]},
+  {codigo: "19632", metros: [36,10,56,40,40,8,5,15,3]},
+  {codigo: "18497", metros: [250,90,40,5,45,90]},
+  {codigo: "18499", metros: [20,400,200,25482,5,4,3,18549,33,19,90,24683,32,22614,20,20,3,17,50]},
+  {codigo: "29413", metros: [50,97,300,15,12]},
+  {codigo: "29412", metros: [145,12,20,22,50]},
+  {codigo: "18263", metros: [5,16,21,11,24,7]}
+];
+
+// Renderização
+function renderizarProdutos() {
+  const galeria = document.getElementById("listaProdutos");
+  galeria.innerHTML = "";
+  produtos.forEach(p => {
+    const card = document.createElement("div");
+    card.className = "item";
+    card.innerHTML = `
+      <p><strong>Código:</strong> ${p.codigo}</p>
+      <p><strong>Metros:</strong> ${p.metros.join(", ")}</p>
+    `;
+    card.addEventListener("click", () => abrirModal(p));
+    galeria.appendChild(card);
+    setTimeout(() => { card.style.opacity = 1 }, 100);
+  });
+}
+
+// Filtro
+document.getElementById("filtro").addEventListener("keyup", function() {
+  const termo = this.value.toLowerCase();
+  document.querySelectorAll(".item").forEach(item => {
+    const texto = item.textContent.toLowerCase();
+    item.style.display = texto.includes(termo) ? "block" : "none";
+  });
+});
+
+// Adicionar novo
+document.getElementById("produtoForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const codigo = document.getElementById("codigo").value.trim();
+  const metros = parseInt(document.getElementById("metros").value);
+  if (codigo.length === 5 && metros > 0) {
+    let existente = produtos.find(p => p.codigo === codigo);
+    if (existente) {
+      existente.metros.push(metros);
+    } else {
+      produtos.push({codigo: codigo, metros: [metros]});
+    }
+    localStorage.setItem("produtos", JSON.stringify(produtos));
+    renderizarProdutos();
+    e.target.reset();
+  }
+});
+
+// Modal zoom
+function abrirModal(produto) {
+  const modal = document.getElementById("modal");
+  const content = document.getElementById("modal-content");
+  content.innerHTML = `<h2>Código: ${produto.codigo}</h2><p>Metros: ${produto.metros.join(", ")}</p>`;
+  modal.style.display = "flex";
+}
+document.getElementById("fechar").addEventListener("click", () => {
+  document.getElementById("modal").style.display = "none";
+});
+
+renderizarProdutos();
+</script>
+</body>
+</html>
