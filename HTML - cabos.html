@@ -153,34 +153,58 @@
   </div>
 
 <script>
-  let produtos = JSON.parse(localStorage.getItem("produtos")) || [];
-
-  function renderizarProdutos() {
+  async function renderizarProdutos() {
     const galeria = document.getElementById("listaProdutos");
     galeria.innerHTML = "";
-    produtos.forEach(p => {
-      setTimeout(() => { card.style.opacity = 1 }, 100);
-    });
+
+    try {
+      const response = await fetch("http://localhost:3000/produtos");
+      const produtos = await response.json();
+
+      produtos.forEach(p => {
+        const card = document.createElement("div");
+        card.className = "item";
+        card.innerHTML = `
+          <p><strong>Código:</strong> ${p.codigo}</p>
+          <p><strong>Descrição:</strong> ${p.descricao}</p>
+          <p><strong>Metros:</strong> ${p.metros}</p>
+        `;
+        galeria.appendChild(card);
+        setTimeout(() => { card.style.opacity = 1 }, 100);
+      });
+    } catch (error) {
+      console.error("Erro ao carregar produtos:", error);
+    }
   }
 
-  document.getElementById("produtoForm").addEventListener("submit", e => {
+  document.getElementById("produtoForm").addEventListener("submit", async e => {
     e.preventDefault();
     const codigo = document.getElementById("codigo").value.trim();
     const descricao = document.getElementById("descricao").value.trim();
     const metros = parseInt(document.getElementById("metros").value);
-    const imagem = document.getElementById("imagem").value.trim();
-    const especificacoes = document.getElementById("especificacoes").value
 
     if (codigo.length === 5 && metros > 0 && descricao) {
-      let existente = produtos.find(p => p.codigo === codigo);
-      if (existente) {
-        existente.metros.push(metros);
-      } else {
-        produtos.push({ codigo, descricao, metros: [metros], imagem, especificacoes });
+      try {
+        const response = await fetch("http://localhost:3000/produtos", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ codigo, descricao, metros })
+        });
+
+        if (response.ok) {
+          alert("Produto adicionado com sucesso!");
+          renderizarProdutos();
+          e.target.reset();
+        } else {
+          const error = await response.json();
+          alert(`Erro ao adicionar produto: ${error.error}`);
+        }
+      } catch (error) {
+        console.error("Erro ao adicionar produto:", error);
+        alert("Erro ao adicionar produto. Tente novamente mais tarde.");
       }
-      localStorage.setItem("produtos", JSON.stringify(produtos));
-      renderizarProdutos();
-      e.target.reset();
+    } else {
+      alert("Dados inválidos. Verifique os campos e tente novamente.");
     }
   });
 
@@ -232,6 +256,28 @@ document.getElementById("mostrarFormulario").addEventListener("click", () => {
   form.style.display = form.style.display === "none" ? "flex" : "none";
 });
   renderizarProdutos();
+
+  function abrirRemoteDesktopApp() {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    if (/windows/i.test(userAgent)) {
+      // Abrir no Windows usando diferentes métodos
+      const link = document.createElement('a');
+      link.href = 'almoxarifado.rdp';
+      link.download = 'almoxarifado.rdp';
+      link.click();
+
+      setTimeout(() => {
+        alert('Se o arquivo não abrir automaticamente, tente usar o aplicativo Remote Desktop ou Remote Desktop 8 disponível na Microsoft Store.');
+      }, 1000);
+    } else if (/macintosh|mac os x/i.test(userAgent)) {
+      // Abrir no iOS
+      alert('Para abrir o Remote Desktop no iOS, use o aplicativo Microsoft Remote Desktop disponível na App Store.');
+    } else {
+      // Caso não seja Windows ou iOS
+      alert('Plataforma não suportada para abrir o Remote Desktop.');
+    }
+  }
 </script>
 </body>
 </html>
