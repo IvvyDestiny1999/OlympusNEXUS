@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Termos, Privacidade e Usabilidade</title>
+  <link rel="stylesheet" href="themes.css"> <!-- Link para seu CSS -->
+  
+  <div id="menu-container"></div>
+<script>
+  fetch("menu.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("menu-container").innerHTML = html;
+    });
+</script>
+  
+  
+</head>
+<body>
+  <header>
+    <h1>Termos de Uso, Privacidade e Usabilidade</h1>
+  </header>
+
+  <main>
+    <section id="termos">
+      <h2>📘 Termos de Uso</h2>
+      <p>Ao acessar este site, você concorda com os seguintes termos:</p>
+      <ul>
+        <li>Você não deve utilizar o serviço para fins ilegais ou não autorizados.</li>
+        <li>O conteúdo disponibilizado é protegido por direitos autorais e não pode ser reproduzido sem permissão.</li>
+        <li>Nos reservamos o direito de modificar ou descontinuar o serviço a qualquer momento.</li>
+      </ul>
+    </section>
+
+    <section id="privacidade">
+      <h2>🔒 Política de Privacidade</h2>
+      <p>Levamos sua privacidade a sério. Veja como tratamos seus dados:</p>
+      <ul>
+        <li>Coletamos apenas informações necessárias para melhorar sua experiência.</li>
+        <li>Seus dados não são compartilhados com terceiros sem seu consentimento.</li>
+        <li>Você pode solicitar a exclusão de seus dados a qualquer momento.</li>
+      </ul>
+    </section>
+
+    <section id="usabilidade">
+      <h2>🖥️ Usabilidade</h2>
+      <p>Nosso compromisso é oferecer uma experiência intuitiva e acessível:</p>
+      <ul>
+        <li>Design responsivo para todos os dispositivos.</li>
+        <li>Interface clara e navegação simplificada.</li>
+        <li>Compatibilidade com leitores de tela e acessibilidade para todos os usuários.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Ivan Corp. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>
