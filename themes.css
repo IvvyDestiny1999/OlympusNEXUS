@@ -1,0 +1,56 @@
+/* 🎨 Estilo base para transições suaves */
+.navbar {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* 🔵 Cyber Blue — visual corporativo */
+.navbar.cyber-blue {
+  background-color: #e6f0ff;
+  color: #003366;
+}
+.navbar.cyber-blue .navbar-brand,
+.navbar.cyber-blue .nav-link {
+  color: #003366;
+}
+
+/* 🟣 Dark Neon — estilo gamer/punk */
+.navbar.dark-neon {
+  background-color: #0d0d0d;
+  color: #00ffff;
+}
+.navbar.dark-neon .navbar-brand,
+.navbar.dark-neon .nav-link {
+  color: #00ffff;
+}
+.navbar.dark-neon .form-select-sm {
+  background-color: #000;
+  color: #00ffff;
+}
+
+/* 💗 Pink Loli — estilo feminino ousado */
+.navbar.pink-loli {
+  background-color: #ffe6f0;
+  color: #ff1493;
+}
+.navbar.pink-loli .navbar-brand,
+.navbar.pink-loli .nav-link {
+  color: #ff1493;
+}
+
+/* 🔴 Red Fox — visual maduro e elegante */
+.navbar.red-fox {
+  background-color: #330000;
+  color: #ff4d4d;
+}
+.navbar.red-fox .navbar-brand,
+.navbar.red-fox .nav-link {
+  color: #ff4d4d;
+}
+
+/* 🎛️ Estilo do seletor de tema */
+.navbar .form-select-sm {
+  min-width: 120px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  font-weight: bold;
+}

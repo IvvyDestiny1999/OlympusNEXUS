@@ -4,18 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login - Zeus do Brasil</title>
-
+  <!-- 1. Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="themes.css" />
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <script src="js/login.js" defer></script>
 </head>
 
 <body>
+  <div id="menu-container"></div>
+  
   <div class="limiter">
     <div class="container-login100">
       <div class="wrap-login100">
         <div class="login100-pic js-tilt" data-tilt>
-          <img src="img/zeus-do-brasil-logo.png" alt="Zeus do Brasil Logo" />
+          <img src="img/logo.png" alt="Zeus do Brasil Logo" />
         </div>
 
         <form class="login100-form validate-form" onsubmit="return validateLogin()">
@@ -41,31 +49,51 @@
     </div>
   </div>
 
-  <button onclick="abrirRemoteDesktopApp()" style="margin-top: 20px; padding: 10px 20px; font-size: 1rem; background-color: #2980b9; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">🔗 Conectar Área de Trabalho Remota</button>
-  <script>
-    function abrirRemoteDesktopApp() {
-      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-      if (/windows/i.test(userAgent)) {
-        const link = document.createElement('a');
-        link.href = 'almoxarifado.rdp';
-        link.download = 'almoxarifado.rdp';
-        link.click();
-
-        setTimeout(() => {
-          alert('Se o arquivo não abrir automaticamente, tente usar o aplicativo Remote Desktop ou Remote Desktop 8 disponível na Microsoft Store.');
-        }, 1000);
-      } else if (/macintosh|mac os x/i.test(userAgent)) {
-        alert('Para abrir o Remote Desktop no iOS, use o aplicativo Microsoft Remote Desktop disponível na App Store.');
-      } else {
-        alert('Plataforma não suportada para abrir o Remote Desktop.');
-      }
-    }
   </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
   <script>
     $('.js-tilt').tilt({ scale: 1.1 });
   </script>
-</body>
+
+
+
+  <!  <!-- Menu será injetado aqui -->
+  <div id="menu-container"></div>
+
+    <!-- 4. Script para injetar menu e aplicar tema -->
+  <script>
+    fetch("menu.html")
+      .then((res) => res.text())
+      .then((html) => {
+        document.getElementById("menu-container").innerHTML = html;
+
+        const menu = document.getElementById("mainMenu");
+        const selector = document.getElementById("themeSelector");
+        const saved = localStorage.getItem("theme") || "cyber-blue";
+
+        // remove classes padrão
+        menu.classList.remove("bg-light", "navbar-light", "navbar-dark");
+        // aplica tema salvo
+        menu.classList.add(saved);
+        selector.value = saved;
+
+        // troca tema on-change
+        selector.onchange = () => {
+          const oldTheme = Array.from(menu.classList).find((c) =>
+            ["cyber-blue", "dark-neon", "pink-loli", "red-fox"].includes(c)
+          );
+          if (oldTheme) menu.classList.replace(oldTheme, selector.value);
+          else menu.classList.add(selector.value);
+
+          localStorage.setItem("theme", selector.value);
+        };
+      });
+  </script>
+
+  <!-- 5. Bootstrap Bundle JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  ></script>>
 </html>
+  
