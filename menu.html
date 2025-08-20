@@ -1,0 +1,102 @@
+<!--menu.html-->
+
+
+<!-- Font Awesome & CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+
+<nav id="mainMenu" class="navbar navbar-expand-lg px-4 menu-bar">
+  <a class="navbar-brand fw-bold" href="index.html">
+    <i class="fas fa-feather-alt"></i> OlympusZeus Suite
+  </a>
+  
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarMenu"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
+    <ul class="navbar-nav align-items-lg-center">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-home"></i> Início
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../old/blog.html">
+          <i class="fas fa-book"></i> Diário
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="blog.html">
+          <i class="fas fa-blog"></i> Blog
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="stats.html">
+          <i class="fas fa-chart-line"></i> Estatísticas
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="inspiration.html">
+          <i class="fas fa-bolt"></i> Inspiração
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="./terms.html">
+          <i class="fas fa-shield-alt"></i> Termos & Privacidade
+        </a>
+      </li>
+
+      <!-- seletor de tema -->
+      <li class="nav-item ms-lg-3">
+        <select id="themeSelector" class="form-select form-select-sm">
+          <option value="cyber-blue">Cyber Blue</option>
+          <option value="dark-neon">Dark Neon</option>
+          <option value="pink-loli">Pink Loli</option>
+          <option value="red-fox">Red Fox</option>
+        </select>
+      </li>
+
+      <!-- config -->
+      <li class="nav-item ms-lg-3">
+        <a href="settings.html" class="nav-link">
+          <i class="fas fa-cog"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  // Recupera tema salvo
+  const temaSalvo = localStorage.getItem("theme") || "cyber-blue";
+
+  // Aplica no body e na navbar
+  document.body.classList.add(temaSalvo);
+  document.getElementById("mainMenu").classList.add(temaSalvo);
+
+  // Seleciona a opção correta
+  const themeSelector = document.getElementById("themeSelector");
+  themeSelector.value = temaSalvo;
+
+  // Ao trocar tema
+  themeSelector.onchange = () => {
+    const novoTema = themeSelector.value;
+
+    // Remove classes antigas
+    document.body.classList.remove("cyber-blue", "dark-neon", "pink-loli", "red-fox");
+    document.getElementById("mainMenu").classList.remove("cyber-blue", "dark-neon", "pink-loli", "red-fox");
+
+    // Adiciona novo tema
+    document.body.classList.add(novoTema);
+    document.getElementById("mainMenu").classList.add(novoTema);
+
+    // Salva escolha
+    localStorage.setItem("theme", novoTema);
+  };
+</script>
