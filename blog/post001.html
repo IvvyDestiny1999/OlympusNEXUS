@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amanhecer em silêncio</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      line-height: 1.7;
+      background: #f2f3f5;
+      color: #333;
+    }
+    .menu-placeholder {
+      /* opcional: estilize o container do menu, se precisar ajustar margem/padding */
+    }
+    .container {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      color: #2c3e50;
+      text-align: center;
+    }
+    .subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #7f8c8d;
+      text-align: center;
+      font-style: italic;
+    }
+    .cover-image {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin-bottom: 2rem;
+      display: block;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    p {
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+    .callout {
+      background: #ecf0f1;
+      padding: 1rem 1.5rem;
+      border-left: 4px solid #3498db;
+      margin: 2rem 0;
+      border-radius: 4px;
+    }
+    .btn-action {
+      display: block;
+      margin: 2.5rem auto;
+      padding: 0.75rem 2rem;
+      background: #3498db;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 50px;
+      text-align: center;
+      font-weight: bold;
+      width: fit-content;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu (será carregado de /menu.html) -->
+  <div class="menu-placeholder"></div>
+  <script>
+    fetch('/menu.html')
+      .then(res => res.text())
+      .then(html => document.querySelector('.menu-placeholder').innerHTML = html)
+      .catch(() => console.warn('Falha ao carregar o menu'));
+  </script>
+
+  <div class="container">
+    <h1>Amanhecer em silêncio</h1>
+
+    <p class="subtitle">
+      Descubra o ritual que 89% das pessoas de alta performance usam antes de começar o dia.
+    </p>
+
+    <img class="cover-image"
+         src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200"
+         alt="Amanhecer silencioso sobre o mar"/>
+
+    <p>
+      Você já notou como, no instante em que o primeiro clarão invade o horizonte, algo dentro de nós desperta?
+      É como se o universo nos oferecesse um breve presente: minutos onde nada externo exige nossa atenção.
+      Aquele silêncio, raro e valioso, ativa um mecanismo interno de clareza e foco: o cérebro começa a
+      consolidar memórias, filtrar preocupações e preparar-se para desafios.
+    </p>
+
+    <div class="callout">
+      Estudos de psicologia positiva mostram que dedicar cinco minutos ao silêncio matinal reduz o estresse
+      em até 30% e aumenta a sensação de controle sobre o próprio dia. Você não precisa ser um monge
+      para colher esse benefício — basta um gesto simples: não pegar o celular.
+    </div>
+
+    <p>
+      Experimente isso agora: defina o despertador cinco minutos mais cedo do que de costume. Ao acordar,
+      sente-se na cama, feche os olhos e respire profundamente três vezes. Note as sensações: o ar entrando,
+      o leve tremor de um músculo, o coração batendo num compasso tranquilo. Durante esse breve intervalo,
+      seu cérebro realiza um ‘scanning’ interno, identificando sonhos que você estava esquecendo e
+      preocupações que podem esperar.
+    </p>
+
+    <p>
+      Essa pausa consciente ativa o córtex pré-frontal, responsável pela tomada de decisões e pela regulação
+      emocional. Em outras palavras, você se arma com mais calma e autoconfiança antes de encarar o primeiro
+      e-mail do trabalho, o trânsito ou aquela reunião decisiva. Ao criar esse hábito, você deixa de reagir
+      impulsivamente às distrações e começa a responder com intenção.
+    </p>
+
+    <p>
+      Se leu até aqui, você já deu o primeiro passo: reconheceu que a verdadeira fonte de poder está no seu
+      estado interior. Amanhecer em silêncio não é sobre abdicar do mundo, mas sobre reconquistar o comando
+      da sua mente. Experimente por 21 dias e observe a diferença: menos ansiedade, mais clareza e
+      resultados consistentes.
+    </p>
+
+    <a href="#" class="btn-action">Quero começar amanhã</a>
+  </div>
+
+</body>
+</html>
