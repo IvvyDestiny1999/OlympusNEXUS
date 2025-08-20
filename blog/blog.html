@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--index.html-->
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog OlympusZeus</title>
+
+  <!-- 1. Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- 2. Temas personalizados -->
+  <link href="themes.css" rel="stylesheet" />
+
+  <!-- 3. Seu CSS principal -->
+</head>
+
+<body>
+  <!-- Menu será injetado aqui -->
+  <div id="menu-container"></div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Blog OlympusZeus</h1>
+    <p>Reflexões, inspirações e histórias escritas por nossos administradores.</p>
+  </section>
+
+  <!-- Posts -->
+  <div class="container">
+    <h2 class="section-title">Últimas Publicações</h2>
+    <div class="row">
+      <!-- Post 1 -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card shadow-sm">
+          <img
+            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+            class="card-img-top post-image"
+            alt="Imagem do post"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Amanhecer em silêncio</h5>
+            <p class="card-text">
+              O poder do silêncio ao acordar. Um momento de
+              paz antes do mundo começar.
+            </p>
+            <a href="posts/post001.html" class="btn btn-outline-primary btn-sm"
+              >Ler mais</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 2 -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card shadow-sm">
+          <img
+            src="https://images.unsplash.com/photo-1519681393784-d120267933ba"
+            class="card-img-top post-image"
+            alt="Imagem do post"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Costurando ideias no ônibus</h5>
+            <p class="card-text">
+              Costurando idéias ou estudando estratégias ouvindo mundos, o poder de aproveitar o tempo ocioso, como no ônibus.
+            </p>
+            <a href="posts/post002.html" class="btn btn-outline-primary btn-sm"
+              >Ler mais</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 3 -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card shadow-sm">
+          <img
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
+            class="card-img-top post-image"
+            alt="Imagem do post"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Fragmentos de agosto</h5>
+            <p class="card-text">
+              O mês trouxe eventos astronômicos raros. Uma releitura.
+            </p>
+            <a href="posts/post003.html" class="btn btn-outline-primary btn-sm"
+              >Ler mais</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer class="bg-light text-center py-4 mt-5">
+    <p>&copy; 2025 OlympusZeus Suite. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- 4. Script para injetar menu e aplicar tema -->
+  <script>
+    fetch("menu.html")
+      .then((res) => res.text())
+      .then((html) => {
+        document.getElementById("menu-container").innerHTML = html;
+
+        const menu = document.getElementById("mainMenu");
+        const selector = document.getElementById("themeSelector");
+        const saved = localStorage.getItem("theme") || "cyber-blue";
+
+        // remove classes padrão
+        menu.classList.remove("bg-light", "navbar-light", "navbar-dark");
+        // aplica tema salvo
+        menu.classList.add(saved);
+        selector.value = saved;
+
+        // troca tema on-change
+        selector.onchange = () => {
+          const oldTheme = Array.from(menu.classList).find((c) =>
+            ["cyber-blue", "dark-neon", "pink-loli", "red-fox"].includes(c)
+          );
+          if (oldTheme) menu.classList.replace(oldTheme, selector.value);
+          else menu.classList.add(selector.value);
+
+          localStorage.setItem("theme", selector.value);
+        };
+      });
+  </script>
+
+  <!-- 5. Bootstrap Bundle JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  ></script>
+</body>
+</html>
