@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>teste</title>
+  <!-- 1. Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- 2. Temas personalizados -->
+  <link href="themes.css" rel="stylesheet" />
+
+  <!-- 3. Seu CSS principal -->
+</head>
+
+<body>
+  <!-- Menu será injetado aqui -->
+  <div id="menu-container"></div>
+
+    <!-- 4. Script para injetar menu e aplicar tema -->
+  <script>
+    fetch("menu.html")
+      .then((res) => res.text())
+      .then((html) => {
+        document.getElementById("menu-container").innerHTML = html;
+
+        const menu = document.getElementById("mainMenu");
+        const selector = document.getElementById("themeSelector");
+        const saved = localStorage.getItem("theme") || "cyber-blue";
+
+        // remove classes padrão
+        menu.classList.remove("bg-light", "navbar-light", "navbar-dark");
+        // aplica tema salvo
+        menu.classList.add(saved);
+        selector.value = saved;
+
+        // troca tema on-change
+        selector.onchange = () => {
+          const oldTheme = Array.from(menu.classList).find((c) =>
+            ["cyber-blue", "dark-neon", "pink-loli", "red-fox"].includes(c)
+          );
+          if (oldTheme) menu.classList.replace(oldTheme, selector.value);
+          else menu.classList.add(selector.value);
+
+          localStorage.setItem("theme", selector.value);
+        };
+      });
+  </script>
+
+  <!-- 5. Bootstrap Bundle JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  ></script>
+</body>
+
+</html>
