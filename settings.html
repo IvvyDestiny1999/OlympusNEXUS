@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configurações</title>
+
+  <!-- Estilos externos -->
+  <link rel="stylesheet" href="theme.css" />
+</head>
+<body>
+  <div id="menu-container"></div>
+  
+  
+  <!-- Conteúdo principal -->
+  <main class="settings-container">
+    <header class="settings-header">
+      <h1><i class="fas fa-cog"></i> Configurações (em desenvolvimento)</h1>
+    </header>
+
+    <section class="settings-section" id="appearance">
+      <h2><i class="fas fa-palette"></i> Aparência</h2>
+      <div class="setting-item">
+        <label for="themeSelector">Tema visual:</label>
+        <select id="themeSelector">
+          <option value="cyber-blue">Cyber Blue</option>
+          <option value="dark-neon">Dark Neon</option>
+          <option value="pink-loli">Pink Loli</option>
+          <option value="red-fox">Red Fox</option>
+        </select>
+      </div>
+      <div class="setting-item">
+        <label for="fontSize">Tamanho da fonte:</label>
+        <select id="fontSize">
+          <option value="small">Pequeno</option>
+          <option value="medium">Médio</option>
+          <option value="large">Grande</option>
+        </select>
+      </div>
+      <div class="setting-item">
+        <label>
+          <input type="checkbox" id="autoDark" />
+          Modo escuro automático
+        </label>
+      </div>
+    </section>
+
+    <section class="settings-section" id="privacy">
+      <h2><i class="fas fa-lock"></i> Privacidade</h2>
+      <div class="setting-item">
+        <input type="password" id="new-password" placeholder="Nova senha" />
+      </div>
+      <div class="setting-actions">
+        <button onclick="setNewPassword()">Definir/Alterar senha</button>
+        <button onclick="removePassword()">Remover senha</button>
+        <button onclick="clearEntries()">🧹 Limpar diário</button>
+        <button onclick="exportBackup()">💾 Exportar backup</button>
+      </div>
+    </section>
+
+    <section class="settings-section" id="usability">
+      <h2><i class="fas fa-brain"></i> Usabilidade</h2>
+      <div class="setting-item">
+        <label>
+          <input type="checkbox" id="animationsToggle" />
+          Ativar animações
+        </label>
+      </div>
+      <div class="setting-item">
+        <label>
+          <input type="checkbox" id="tipsToggle" />
+          Mostrar dicas de escrita
+        </label>
+      </div>
+      <div class="setting-item">
+        <label>
+          <input type="checkbox" id="immersiveToggle" />
+          Modo leitura imersiva
+        </label>
+      </div>
+    </section>
+
+    <section class="settings-section" id="system">
+      <h2><i class="fas fa-globe"></i> Sistema</h2>
+      <div class="setting-item">
+        <label for="language">Idioma:</label>
+        <select id="language">
+          <option value="pt-br">Português</option>
+          <option value="en">English</option>
+          <option value="es">Español</option>
+        </select>
+      </div>
+      <div class="setting-actions">
+        <button onclick="resetSettings()">🔄 Resetar configurações</button>
+      </div>
+      <p class="system-version">Versão do sistema: <strong>2.91.110</strong></p>
+    </section>
+
+    <section class="settings-section" id="notifications">
+      <h2><i class="fas fa-bell"></i> Notificações Diárias</h2>
+      <div class="setting-item">
+        <label>
+          <input type="checkbox" id="dailyNotifyToggle" />
+          Ativar lembrete diário
+        </label>
+      </div>
+      <div class
+      </section>
+        
+      </div>
+     </div>
+      </div>
+      </div>
+     
+ </div>
+
+      
+<!-- continua-->
+<div>
+    <!-- Rodapé-->
+  <footer class="bg-light text-center py-4 mt-5">
+    <p>&copy; 2025 OlympusZeus Suite. Todos os direitos reservados.</p>
+  </footer>
+      </div>
+
+  <!-- 4. Script para injetar menu e aplicar tema -->
+  <script>
+    fetch("menu.html")
+      .then((res) => res.text())
+      .then((html) => {
+        document.getElementById("menu-container").innerHTML = html;
+
+        const menu = document.getElementById("mainMenu");
+        const selector = document.getElementById("themeSelector");
+        const saved = localStorage.getItem("theme") || "cyber-blue";
+
+        // remove classes padrão
+        menu.classList.remove("bg-light", "navbar-light", "navbar-dark");
+        // aplica tema salvo
+        menu.classList.add(saved);
+        selector.value = saved;
+
+        // troca tema on-change
+        selector.onchange = () => {
+          const oldTheme = Array.from(menu.classList).find((c) =>
+            ["cyber-blue", "dark-neon", "pink-loli", "red-fox"].includes(c)
+          );
+          if (oldTheme) menu.classList.replace(oldTheme, selector.value);
+          else menu.classList.add(selector.value);
+
+          localStorage.setItem("theme", selector.value);
+        };
+      });
+  </script>
+
+  <!-- 5. Bootstrap Bundle JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  ></script>
+</body>
+</html>
