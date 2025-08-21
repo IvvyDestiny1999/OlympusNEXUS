@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Costurando ideias no ônibus</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: #fafafa;
+      color: #2c3e50;
+      line-height: 1.75;
+    }
+    .menu-placeholder {
+      /* opcional: estilize o container do menu, se precisar ajustar margem/padding */
+    }
+    .container {
+      max-width: 780px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+    h1 {
+      font-size: 2.6rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+      color: #34495e;
+    }
+    .subtitle {
+      font-size: 1.18rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #7f8c8d;
+      font-style: italic;
+    }
+    .cover-image {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin-bottom: 2rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+    p {
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+    .highlight {
+      font-weight: bold;
+      background: #fffae6;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+    }
+    .btn-action {
+      display: block;
+      margin: 2.5rem auto;
+      padding: 0.75rem 2rem;
+      background: #e67e22;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu (será carregado de /menu.html) -->
+  <div class="menu-placeholder"></div>
+  <script>
+    fetch('/menu.html')
+      .then(res => res.text())
+      .then(html => document.querySelector('.menu-placeholder').innerHTML = html)
+      .catch(() => console.warn('Falha ao carregar o menu'));
+  </script>
+
+  <div class="container">
+    <h1>Costurando ideias no ônibus</h1>
+
+    <p class="subtitle">
+      Transforme o tempo parado em fonte inesgotável de insights criativos.
+    </p>
+
+    <img class="cover-image"
+         src="https://images.unsplash.com/photo-1514318619931-2c178db0f2e5?auto=format&fit=crop&w=1200"
+         alt="Mãos costurando ideias no ônibus"/>
+
+    <p>
+      Se você passa mais de vinte minutos por dia no transporte público, saiba que seu cérebro está sedento
+      por estímulos que fujam da rotina. Cada trecho de percurso é uma linha em branco à espera de ser
+      preenchida com pensamentos inovadores. A chave é <span class="highlight">quebrar o piloto automático</span>.
+    </p>
+
+    <p>
+      Antes de desembarcar, feche os olhos e faça um “brain dump”: mentalmente, liste tudo que está na sua
+      cabeça. Tarefas, preocupações, ideias soltas. Depois, escolha um único problema ou tema que te
+      intrigue. Pode ser o projeto do trabalho, uma história para escrever, até aquela receita nova.
+    </p>
+
+    <div class="highlight">
+      Atenção: são nesses minutos — quando o mundo parece te obrigar a esperar — que você pode costurar
+      conexões inesperadas entre conceitos.
+    </div>
+
+    <p>
+      Pegue o que você listou e comece a desenhar mentalmente possíveis soluções. Pergunte-se “e se…?”:
+      e se misturasse aquela técnica de outro setor? E se perguntasse a opinião de alguém de fora da área?
+      Essas interrogações instigam o córtex associativo e geram insights que você jamais teria sentado
+      em frente a uma mesa de escritório.
+    </p>
+
+    <p>
+      Quando o ônibus chega ao seu ponto, anote em um app ou no próprio bilhete as três ideias mais
+      valiosas que vieram. Ao longo do dia, volte a elas, refine, compartilhe. Você vai descobrir que
+      o deslocamento diário pode se tornar seu maior laboratório de criatividade.
+    </p>
+
+    <a href="#" class="btn-action">Quero praticar hoje</a>
+  </div>
+
+</body>
+</html>
