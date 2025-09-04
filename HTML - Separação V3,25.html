@@ -175,7 +175,7 @@
   <a
     id="abrirRDP"
     class="link-box purple"
-    href="file:///C:/Users/separacaocd/OneDrive%20-%20Zeus%20do%20Brasil/.SupervisorioSeparacao/HTML%20-%20Separação%20V3,25.html"
+    href="file:///C:/Users/separacaocd/OneDrive%20-%20Zeus%20do%20Brasil/.SupervisorioSeparacao/HTML%20-%20Separação%20V3,23.html"
     target="_blank"
   >
     Abrir Microsoft Remote Desktop
@@ -202,7 +202,7 @@
   <h1>Painel de Acessos Rápidos</h1>
 
   <div class="link-container">
-    <a href="https://forms.monday.com/forms/fa1cd2a96f1ae745861c877caeb8799d?r=use1" class="link-box green" target="_blank">Form Separadores</a>
+    <a href="https://forms.monday.com/forms/1d5601c28cc95029cc056007e94d6188?r=use1" class="link-box green" target="_blank">Form Separadores</a>
     <a href="https://forms.monday.com/forms/fa1cd2a96f1ae745861c877caeb8799d?r=use1" class="link-box purple" target="_blank">Form Estoque</a>
     <a href="https://wkf.ms/4adbJ6V" class="link-box MidnightRed" target="_blank">Form Quitadores</a>
     <a href="https://alicercecorporativo.monday.com/boards/7705321218" class="link-box MidnightBlue" target="_blank">Quadro Solicitações</a>
@@ -214,7 +214,7 @@
 
 
   <div class="iframe-container">
-    <iframe src="https://view.monday.com/8182100717-afd49508d03c246591065683042b24a8?r=use1"></iframe>
+    <iframe src="https://view.monday.com/embed/8182100717-16f1eb9a697e75b1d89a15a56823916b"></iframe>
     <iframe src="https://view.monday.com/embed/5670006246-0a26461f92647c355094a4f877a18377?r=use1"></iframe>
   </div>
 
@@ -258,13 +258,27 @@
     const userAgent = navigator.userAgent.toLowerCase();
     const isWindows = userAgent.includes('windows');
     const isMac = userAgent.includes('macintosh') || userAgent.includes('mac os x');
-    if (isMac) {
+
+    if (isWindows) {
+      // Cria e dispara o download do arquivo .rdp
+      const link = document.createElement('a');
+      link.href = 'almoxarifado.rdp'; // Certifique-se de que o caminho esteja correto
+      link.download = 'almoxarifado.rdp';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      // Mensagem de orientação
+      setTimeout(() => {
+        alert('📂 O arquivo foi baixado com sucesso.\n\nAbra-o com o aplicativo "Área de Trabalho Remota" do Windows. Se não abrir automaticamente, você pode usar o aplicativo "Remote Desktop" disponível na Microsoft Store.');
+      }, 1000);
+    } else if (isMac) {
       alert('🍎 Para acessar via Mac, utilize o aplicativo "Microsoft Remote Desktop" disponível gratuitamente na App Store.');
     } else {
       alert('⚠️ Plataforma não suportada para abrir o Remote Desktop.\n\nEste recurso está disponível apenas para Windows e macOS.');
     }
   }
- 
+
   // Exibe o botão apenas em dispositivos Windows
   window.addEventListener('DOMContentLoaded', () => {
     const isWindows = navigator.userAgent.toLowerCase().includes('windows');
